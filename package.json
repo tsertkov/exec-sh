@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:xxx/xxx.git"
+    "url": "git@github.com:tsertkov/exec-sh.git"
   },
   "keywords": [
     "exec",
@@ -22,6 +22,9 @@
   ],
   "author": "Aleksandr Tsertkov <tsertkov@gmail.com>",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tsertkov/exec-sh/issues"
+  },
   "dependencies": {
     "merge": "^1.1.3"
   },
