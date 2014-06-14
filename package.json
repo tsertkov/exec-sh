@@ -4,7 +4,7 @@
   "description": "Execute shell command forwarding all stdio.",
   "main": "lib/exec-sh.js",
   "scripts": {
-    "test": "mocha && jshint lib/ example/ test/ package.json",
+    "test": "mocha --reporter spec && jshint lib/ example/ test/ package.json",
     "jsdoc": "jsdoc --private --destination jsdoc lib/"
   },
   "repository": {
