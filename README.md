@@ -81,4 +81,3 @@ execSh("echo lorem && bash", { cwd: "/home" }, function(err){
 
 The MIT License (MIT)
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/tsertkov/exec-sh/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
