@@ -69,6 +69,10 @@ execSh("echo lorem && bash", { cwd: "/home" }, function(err){
 });
 ```
 
+## Release history
+
+- 0.1.0 Initial release
+
 ## Testing
 
 `npm test`
