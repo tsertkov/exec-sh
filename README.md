@@ -2,7 +2,7 @@
 
 Execute shell command forwarding all stdio streams.
 
-[![Build Status](https://travis-ci.org/tsertkov/exec-sh)](https://travis-ci.org/tsertkov/exec-sh)
+[![Build Status](https://travis-ci.org/tsertkov/exec-sh.svg)](https://travis-ci.org/tsertkov/exec-sh)
 [![NPM version](https://badge.fury.io/js/exec-sh.png)](http://badge.fury.io/js/exec-sh)
 [![David Status](https://david-dm.org/tsertkov/exec-sh.png)](https://david-dm.org/tsertkov/exec-sh) 
 
