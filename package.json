@@ -1,0 +1,34 @@
+{
+  "name": "exec-sh",
+  "version": "0.1.0",
+  "description": "Execute shell command forwarding all stdio.",
+  "main": "lib/exec-sh.js",
+  "scripts": {
+    "test": "mocha && jshint lib/ example/ test/ package.json",
+    "jsdoc": "jsdoc --private --destination jsdoc lib/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:xxx/xxx.git"
+  },
+  "keywords": [
+    "exec",
+    "spawn",
+    "terminal",
+    "console",
+    "shell",
+    "command",
+    "child_process"
+  ],
+  "author": "Aleksandr Tsertkov <tsertkov@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "merge": "^1.1.3"
+  },
+  "devDependencies": {
+    "jsdoc": "^3.3.0-alpha8",
+    "jshint": "^2.5.1",
+    "mocha": "^1.20.1",
+    "sinon": "^1.10.2"
+  }
+}
