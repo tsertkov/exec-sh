@@ -1,6 +1,6 @@
 /*global describe, it, before, beforeEach, after, afterEach */
 var
-  execSh = require("../"),
+  execSh = require(".."),
   assert = require("assert"),
   sinon = require("sinon"),
   merge = require("merge"),
