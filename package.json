@@ -4,7 +4,7 @@
   "description": "Execute shell command forwarding all stdio.",
   "main": "lib/exec-sh.js",
   "scripts": {
-    "test": "npm run cover-test && jshint",
+    "test": "npm run cover-test && npm run jshint",
     "cover-test": "istanbul cover --dir artifacts/coverage _mocha -- --reporter spec",
     "jshint": "jshint lib/ example/ test/",
     "dev": "mocha --reporter spec --watch",
