@@ -94,6 +94,7 @@ Code coverage report for all files is [available here](https://s3.eu-central-1.a
 
 - `npm test` - run tests
 - `npm run jsdoc` - build jsdoc
+- `npm run dev` - run tests continuously
 
 ## License
 
