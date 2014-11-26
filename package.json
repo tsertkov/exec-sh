@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run cover-test && npm run jshint",
     "cover-test": "istanbul cover --dir artifacts/coverage _mocha -- --reporter spec",
-    "jshint": "jshint lib/ example/ test/",
+    "jshint": "jshint lib/ example/ test/ package.json",
     "dev": "mocha --reporter spec --watch",
     "jsdoc": "jsdoc --private --destination artifacts/jsdoc lib/"
   },
