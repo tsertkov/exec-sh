@@ -5,7 +5,7 @@
   "main": "lib/exec-sh.js",
   "scripts": {
     "test": "mocha --reporter spec && jshint lib/ example/ test/ package.json",
-    "jsdoc": "jsdoc --private --destination jsdoc lib/"
+    "jsdoc": "jsdoc --private --destination artifacts/jsdoc lib/"
   },
   "repository": {
     "type": "git",
