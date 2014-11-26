@@ -11,7 +11,7 @@ deploy:
 - provider: s3
   access_key_id: AKIAJ26WU3ZV2SHW7KDA
   secret_access_key:
-    secure: YOQ51yHgTBNneO4XWBkQCtJWegC0r3Mij4nEupG4rhUyckdSCc0RVJxOUBd+N550S9m5tOq4IKN51kD41twRnYIrZthn5WZu3vxu2yVdOGA6bvPvmFzFliq0qXd8YNjWGU7QxwVczMJcH+aubjCGDNT4fGUiOAQk3Ro9gScAv10=
+    secure: E8Kac865/1GOF8rCngEnSOlalIENoa6PmJCeerdmu8CiPxuZmkOckJOTX4RkDvlp+ZYWSvmY+HRo5niqXdaYjyERqrrJ6HZaP96cPGPO9D4EV5+MpbzGv6xt/40JeXl/mrSBLB8PdKHNcMvCcPY/Jzcop2v8lNgjYYq4yxPdXgY=
   bucket: tsertkov-artifacts
   local-dir: artifacts
   upload-dir: exec-sh/master
@@ -24,7 +24,7 @@ deploy:
 - provider: s3
   access_key_id: AKIAJ26WU3ZV2SHW7KDA
   secret_access_key:
-    secure: YOQ51yHgTBNneO4XWBkQCtJWegC0r3Mij4nEupG4rhUyckdSCc0RVJxOUBd+N550S9m5tOq4IKN51kD41twRnYIrZthn5WZu3vxu2yVdOGA6bvPvmFzFliq0qXd8YNjWGU7QxwVczMJcH+aubjCGDNT4fGUiOAQk3Ro9gScAv10=
+    secure: E8Kac865/1GOF8rCngEnSOlalIENoa6PmJCeerdmu8CiPxuZmkOckJOTX4RkDvlp+ZYWSvmY+HRo5niqXdaYjyERqrrJ6HZaP96cPGPO9D4EV5+MpbzGv6xt/40JeXl/mrSBLB8PdKHNcMvCcPY/Jzcop2v8lNgjYYq4yxPdXgY=
   bucket: tsertkov-artifacts
   local-dir: artifacts
   upload-dir: exec-sh/develop
