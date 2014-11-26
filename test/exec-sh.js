@@ -10,12 +10,23 @@ describe("exec-sh", function(){
 
   describe("module.exports", function(){
     it("should export a single function", function(){
-      assert.equal(typeof execSh, "function");
+      assert.strictEqual(typeof execSh, "function");
     });
   });
 
   describe("#execSh() arguments", function(){
-    var spawn, exitCode;
+    var spawn, exitCode, stream;
+
+    stream = {
+      on: function(e, c){
+        if (e === "data") {
+          // execute callback two times to check if stream
+          // aggregation works correctly
+          c("1");
+          c("2");
+        }
+      }
+    };
 
     beforeEach(function(){
       exitCode = 0;
@@ -26,7 +37,9 @@ describe("exec-sh", function(){
           if (e === "close") {
             c(exitCode);
           }
-        }
+        },
+        stdout: stream,
+        stderr: stream
       });
     });
 
@@ -37,19 +50,19 @@ describe("exec-sh", function(){
     it("should pass command to spawn function", function(){
       execSh("command");
       sinon.assert.calledOnce(spawn);
-      assert.equal("command", spawn.getCall(0).args[1][1]);
+      assert.strictEqual("command", spawn.getCall(0).args[1][1]);
     });
 
     it("should accept array of commands to run", function(){
       execSh(["command1", "command2"]);
       sinon.assert.calledOnce(spawn);
-      assert.equal("command1;command2", spawn.getCall(0).args[1][1]);
+      assert.strictEqual("command1;command2", spawn.getCall(0).args[1][1]);
     });
 
     it("should accept true as options argument", function(){
       execSh("command", true);
       sinon.assert.calledOnce(spawn);
-      assert.equal(spawn.getCall(0).args[2].stdio, null);
+      assert.strictEqual(spawn.getCall(0).args[2].stdio, null);
     });
 
     it("should merge defaults with options", function(){
@@ -82,7 +95,7 @@ describe("exec-sh", function(){
       process.platform = platform;
 
       sinon.assert.calledOnce(spawn);
-      assert.equal(spawn.getCall(0).args[0], "cmd");
+      assert.strictEqual(spawn.getCall(0).args[0], "cmd");
     });
 
     it("should use 'sh -c' command prefix on *nix", function(){
@@ -92,18 +105,36 @@ describe("exec-sh", function(){
       process.platform = platform;
 
       sinon.assert.calledOnce(spawn);
-      assert.equal(spawn.getCall(0).args[1][0], "-c");
-      assert.equal(spawn.getCall(0).args[0], "sh");
+      assert.strictEqual(spawn.getCall(0).args[1][0], "-c");
+      assert.strictEqual(spawn.getCall(0).args[0], "sh");
     });
 
     it("should return spawn() result", function(){
       assert(execSh("command").spawn_return);
     });
 
+    it("should aggregate stdoout and stderr", function(done){
+      execSh("command", function(err, stdout, stderr){
+        assert.strictEqual(stdout, "12");
+        assert.strictEqual(stderr, "12");
+        done();
+      });
+    });
+
     it("should catch exceptions thrown by spawn", function(done){
       spawn.throws();
-      execSh("command", function(err){
+      execSh("command", function(err, stdout, stderr){
         assert(err instanceof Error);
+        done();
+      });
+    });
+
+    it("should return empty stdout and stderr when spawn throws", function(done){
+      spawn.throws();
+      stream = null;
+      execSh("command", function(err, stdout, stderr){
+        assert.strictEqual(stderr, "");
+        assert.strictEqual(stdout, "");
         done();
       });
     });
