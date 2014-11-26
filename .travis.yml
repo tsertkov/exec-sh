@@ -1,3 +1,36 @@
 language: node_js
 node_js:
 - '0.10'
+after_success:
+- npm run jsdoc
+- cat artifacts/coverage/lcov.info | node_modules/coveralls/bin/coveralls.js
+notifications:
+  slack:
+    secure: jOhhMsUyxLgjn8ckB5fMp4Hrw6ZTKG9EnLBaj2CEVG2cfTnjH2O+E8REtDWTmItzlyJJne1BNzC4Mqygbs/Og0xNtnBJdpEXDxH9ouo+MRr6CUlZRTYQLy7NhF9FbWujcNlmBK55SNvABfc/vuiJlhq8uAsl2g09AH3ujbh3p0Q=
+deploy:
+- provider: s3
+  access_key_id: AKIAJ26WU3ZV2SHW7KDA
+  secret_access_key:
+    secure: YOQ51yHgTBNneO4XWBkQCtJWegC0r3Mij4nEupG4rhUyckdSCc0RVJxOUBd+N550S9m5tOq4IKN51kD41twRnYIrZthn5WZu3vxu2yVdOGA6bvPvmFzFliq0qXd8YNjWGU7QxwVczMJcH+aubjCGDNT4fGUiOAQk3Ro9gScAv10=
+  bucket: tsertkov-artifacts
+  local-dir: artifacts
+  upload-dir: exec-sh/master
+  acl: public_read
+  skip_cleanup: true
+  region: eu-central-1
+  endpoint: s3.eu-central-1.amazonaws.com
+  on:
+    branch: master
+- provider: s3
+  access_key_id: AKIAJ26WU3ZV2SHW7KDA
+  secret_access_key:
+    secure: YOQ51yHgTBNneO4XWBkQCtJWegC0r3Mij4nEupG4rhUyckdSCc0RVJxOUBd+N550S9m5tOq4IKN51kD41twRnYIrZthn5WZu3vxu2yVdOGA6bvPvmFzFliq0qXd8YNjWGU7QxwVczMJcH+aubjCGDNT4fGUiOAQk3Ro9gScAv10=
+  bucket: tsertkov-artifacts
+  local-dir: artifacts
+  upload-dir: exec-sh/develop
+  acl: public_read
+  skip_cleanup: true
+  region: eu-central-1
+  endpoint: s3.eu-central-1.amazonaws.com
+  on:
+    branch: develop
