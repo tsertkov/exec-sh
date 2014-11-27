@@ -67,18 +67,18 @@ execSh("echo lorem && bash", { cwd: "/home" }, function(err){
 
 ## Public API
 
-### execSh(command, [options], [callback])
+### `execSh(command, [options], [callback])`
 
 Execute shell command forwarding all stdio.
 
 **Parameters:**
 
-- *command* {String | Array} - The command to run, or array of commands
-- *[options]* {Object | TRUE} - Options object passed directly to [`child_process.spawn`](http://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options), when `TRUE` then `{ stdio: null }` used
-- *[callback]* {Function} - `callback(err, stdout, stderr)`
- - *err* {Error | NULL} - Error object. Has `code` property containing last command exit code when available
- - *stdout* {String | NULL} - aggregated stdout or `NULL` if not available
- - *stderr* {String | NULL} - aggregated stderr or `NULL` if not available
+- `command {String|Array}` - The command to run, or array of commands
+- `[options] {Object|TRUE}` - Options object passed directly to [`child_process.spawn`](http://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options), when `TRUE` then `{ stdio: null }` used
+- `[callback] {Function}` - `callback(err, stdout, stderr)`
+ - `err {Error|NULL}` - Error object. Has `code` property containing last command exit code when available
+ - `stdout {String|NULL}` - aggregated stdout or `NULL` if not available
+ - `stderr {String|NULL}` - aggregated stderr or `NULL` if not available
 
 **Return Values:**
 
