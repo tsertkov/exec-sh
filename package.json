@@ -4,9 +4,9 @@
   "description": "Execute shell command forwarding all stdio.",
   "main": "lib/exec-sh.js",
   "scripts": {
-    "test": "npm run cover-test && npm run jshint",
+    "test": "npm run lint && npm run cover-test",
     "cover-test": "istanbul cover --dir artifacts/coverage _mocha -- --reporter spec",
-    "jshint": "jshint lib/ example/ test/ package.json",
+    "lint": "standard --verbose **/*.js | snazzy",
     "dev": "mocha --reporter spec --watch",
     "jsdoc": "jsdoc --private --destination artifacts/jsdoc lib/"
   },
@@ -40,6 +40,8 @@
     "jsdoc": "^3.3.0-alpha8",
     "jshint": "^2.5.1",
     "mocha": "^1.20.1",
-    "sinon": "^1.10.2"
+    "sinon": "^1.10.2",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.3"
   }
 }
