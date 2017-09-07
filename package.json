@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run lint && npm run cover-test",
     "cover-test": "istanbul cover --dir artifacts/coverage _mocha -- --reporter spec",
-    "lint": "standard --verbose **/*.js | snazzy",
+    "lint": "standard --verbose **/*.js",
     "dev": "mocha --reporter spec --watch",
     "jsdoc": "jsdoc --private --destination artifacts/jsdoc lib/"
   },
@@ -41,7 +41,6 @@
     "jshint": "^2.5.1",
     "mocha": "^1.20.1",
     "sinon": "^1.10.2",
-    "snazzy": "^7.0.0",
     "standard": "^10.0.3"
   }
 }
