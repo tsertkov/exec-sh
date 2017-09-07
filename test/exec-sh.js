@@ -90,9 +90,9 @@ describe("exec-sh", function(){
 
     it("should use 'cmd /C' command prefix on windows", function(){
       var platform = process.platform;
-      process.platform = "win32";
+      Object.defineProperty(process, "platform", { value: "win32" });
       execSh("command");
-      process.platform = platform;
+      Object.defineProperty(process, "platform", { value: platform });
 
       sinon.assert.calledOnce(spawn);
       assert.strictEqual(spawn.getCall(0).args[0], "cmd");
