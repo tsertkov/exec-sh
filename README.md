@@ -2,6 +2,7 @@
 
 [![NPM](https://nodei.co/npm/exec-sh.png)](https://nodei.co/npm/exec-sh/)
 
+[![NPM Downloads](https://img.shields.io/npm/dm/exec-sh.svg)](https://www.npmjs.com/package/exec-sh)
 [![Build Status](https://travis-ci.org/tsertkov/exec-sh.svg?branch=master)](https://travis-ci.org/tsertkov/exec-sh)
 [![Coverage Status](https://img.shields.io/coveralls/tsertkov/exec-sh.svg)](https://coveralls.io/r/tsertkov/exec-sh?branch=master)
 [![David Status](https://david-dm.org/tsertkov/exec-sh.png)](https://david-dm.org/tsertkov/exec-sh)
