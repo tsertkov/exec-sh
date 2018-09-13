@@ -66,6 +66,29 @@ execSh("echo lorem && bash", { cwd: "/home" }, function(err){
 });
 ```
 
+## Promise Interface
+
+```javascript
+var execShPromise = require("exec-sh").promise;
+
+// run interactive bash shell
+const run = async () => {
+  let out;
+  
+  try {
+    out = await execShPromise('pwd', true);
+  } catch (e) {
+    return console.log('Error: ', e);
+    return console.log('Stderr: ', e.stderr);
+    return console.log('Stdout: ', e.stdout);
+  }
+  
+  console.log('out: ', out.stdout, out.stderr);
+}
+
+run();
+```
+
 ## Public API
 
 ### `execSh(command, [options], [callback])`

@@ -10,6 +10,10 @@ describe('exec-sh', function () {
     it('should export a single function', function () {
       assert.strictEqual(typeof execSh, 'function')
     })
+
+    it('should export promise interface', function () {
+      assert.strictEqual(typeof execSh.promise, 'function')
+    })
   })
 
   describe('#execSh() arguments', function () {
@@ -142,6 +146,26 @@ describe('exec-sh', function () {
       execSh('command', function (err) {
         assert(err instanceof Error)
         assert.equal(exitCode, err.code)
+        done()
+      })
+    })
+
+    it('promise interface: should return promise', function () {
+      assert(execSh.promise('command') instanceof Promise)
+    })
+
+    it('promise interface: should resolve with stderr and stdout', function (done) {
+      execSh.promise('command').then(function (data) {
+        assert(data.hasOwnProperty('stdout'))
+        assert(data.hasOwnProperty('stderr'))
+        done()
+      })
+    })
+
+    it('promise interface: should reject promise when exceptions thrown by spawn', function (done) {
+      spawn.throws()
+      execSh.promise('command').catch(function (err) {
+        assert(err instanceof Error)
         done()
       })
     })
