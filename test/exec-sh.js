@@ -86,6 +86,24 @@ describe('exec-sh', function () {
       assert.deepEqual(spawn.getCall(0).args[2], expectedOptions)
     })
 
+    it('should allow passing nested environment options', function () {
+      var options = {
+        env: {
+          key1: 'value 1',
+          key2: 'value 2'
+        }
+      }
+      var expectedOptions = {
+        env: {
+          key1: 'value 1',
+          key2: 'value 2'
+        },
+        stdio: 'inherit'
+      }
+      execSh('command', options)
+      assert.deepEqual(spawn.getCall(0).args[2], expectedOptions)
+    })
+
     it("should accept optional 'callback' parameter", function () {
       var callback = sinon.spy()
       execSh('command', callback)
