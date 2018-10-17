@@ -2,7 +2,6 @@
 var execSh = require('..')
 var assert = require('assert')
 var sinon = require('sinon')
-var merge = require('merge')
 var cp = require('child_process')
 
 describe('exec-sh', function () {
@@ -68,19 +67,41 @@ describe('exec-sh', function () {
     })
 
     it('should merge defaults with options', function () {
-      execSh('command')
-      var defOptionsClone = merge(true, spawn.getCall(0).args[2])
       var options = { key: 'value' }
-
+      var expectedOptions = {
+        key: 'value',
+        stdio: 'inherit'
+      }
       execSh('command', options)
-      assert.deepEqual(spawn.getCall(1).args[2], merge(true, defOptionsClone, options))
+      assert.deepEqual(spawn.getCall(0).args[2], expectedOptions)
+    })
 
-      // change value of the fist property in default options to null
-      assert.ok(Object.keys(defOptionsClone).length > 0)
-      defOptionsClone[Object.keys(defOptionsClone)[0]] = null
+    it('should allow overriding default options', function () {
+      var options = { foo: 'bar', stdio: null }
+      var expectedOptions = {
+        foo: 'bar',
+        stdio: null
+      }
+      execSh('command', options)
+      assert.deepEqual(spawn.getCall(0).args[2], expectedOptions)
+    })
 
-      execSh('command', defOptionsClone)
-      assert.deepEqual(spawn.getCall(2).args[2], defOptionsClone)
+    it('should allow passing nested environment options', function () {
+      var options = {
+        env: {
+          key1: 'value 1',
+          key2: 'value 2'
+        }
+      }
+      var expectedOptions = {
+        env: {
+          key1: 'value 1',
+          key2: 'value 2'
+        },
+        stdio: 'inherit'
+      }
+      execSh('command', options)
+      assert.deepEqual(spawn.getCall(0).args[2], expectedOptions)
     })
 
     it("should accept optional 'callback' parameter", function () {
