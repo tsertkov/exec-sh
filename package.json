@@ -24,10 +24,7 @@
     "child_process"
   ],
   "author": "Aleksandr Tsertkov <tsertkov@gmail.com>",
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/tsertkov/exec-sh/blob/master/LICENSE"
-  },
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/tsertkov/exec-sh/issues"
   },
