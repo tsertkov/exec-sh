@@ -32,7 +32,7 @@
     "url": "https://github.com/tsertkov/exec-sh/issues"
   },
   "dependencies": {
-    "merge": "^1.2.0"
+    "merge": "^1.2.1"
   },
   "devDependencies": {
     "coveralls": "^3.0.1",
