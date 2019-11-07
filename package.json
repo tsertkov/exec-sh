@@ -1,6 +1,6 @@
 {
   "name": "exec-sh",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Execute shell command forwarding all stdio.",
   "main": "lib/exec-sh.js",
   "scripts": {
