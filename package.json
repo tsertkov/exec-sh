@@ -3,6 +3,8 @@
   "version": "0.3.4",
   "description": "Execute shell command forwarding all stdio.",
   "main": "lib/exec-sh.js",
+  "types": "types/index.d.ts",
+
   "scripts": {
     "test": "npm run lint && npm run cover-test",
     "cover-test": "nyc --reporter=lcov --report-dir=artifacts/coverage mocha",
