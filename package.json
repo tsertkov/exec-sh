@@ -5,7 +5,8 @@
   "main": "lib/exec-sh.js",
   "types": "types/index.d.ts",
   "scripts": {
-    "test": "npm run lint && npm run cover-test",
+    "test": "npm run lint && npm run test-ts && npm run cover-test",
+    "test-ts": "tsc --noEmit example/example.ts",
     "cover-test": "nyc --reporter=lcov --report-dir=artifacts/coverage mocha",
     "lint": "standard --verbose **/*.js",
     "dev": "mocha --reporter spec --watch",
@@ -30,12 +31,14 @@
     "url": "https://github.com/tsertkov/exec-sh/issues"
   },
   "devDependencies": {
+    "@types/node": "^14.14.35",
     "coveralls": "^3.1.0",
     "jsdoc": "^3.6.6",
     "jshint": "^2.12.0",
     "mocha": "^8.3.2",
     "nyc": "^15.1.0",
     "sinon": "^9.2.4",
-    "standard": "^16.0.3"
+    "standard": "^16.0.3",
+    "typescript": "^4.2.3"
   }
 }
