@@ -1,4 +1,4 @@
-var execSh = require('../')
+const execSh = require('../')
 
 // run interactive bash shell
 execSh('echo ola && bash', { cwd: '/home' }, function (err) {
