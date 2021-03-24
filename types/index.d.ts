@@ -15,6 +15,6 @@ declare namespace execSh {
     command: string | string[],
     options?: object | true
   ): Promise<{ stdout: string, stderr: string }>;
-};
+}
 
 export = execSh;
