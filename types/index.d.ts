@@ -11,10 +11,10 @@ declare function execSh(
 ): ChildProcess;
 
 declare namespace execSh {
-  declare function promise(
+  function promise(
     command: string | string[],
     options?: object | true
   ): Promise<{ stdout: string, stderr: string }>;
 }
 
-export = execSh;
+export default execSh;
