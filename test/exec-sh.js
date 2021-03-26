@@ -1,8 +1,8 @@
 /* global describe, it, beforeEach, afterEach */
-var execSh = require('..')
-var assert = require('assert')
-var sinon = require('sinon')
-var cp = require('child_process')
+const execSh = require('..')
+const assert = require('assert')
+const sinon = require('sinon')
+const cp = require('child_process')
 
 describe('exec-sh', function () {
   describe('module.exports', function () {
@@ -16,7 +16,7 @@ describe('exec-sh', function () {
   })
 
   describe('#execSh() arguments', function () {
-    var spawn, exitCode, stream
+    let spawn, exitCode, stream
 
     stream = {
       on: function (e, c) {
@@ -67,8 +67,8 @@ describe('exec-sh', function () {
     })
 
     it('should merge defaults with options', function () {
-      var options = { key: 'value' }
-      var expectedOptions = {
+      const options = { key: 'value' }
+      const expectedOptions = {
         key: 'value',
         stdio: 'inherit'
       }
@@ -77,8 +77,8 @@ describe('exec-sh', function () {
     })
 
     it('should allow overriding default options', function () {
-      var options = { foo: 'bar', stdio: null }
-      var expectedOptions = {
+      const options = { foo: 'bar', stdio: null }
+      const expectedOptions = {
         foo: 'bar',
         stdio: null
       }
@@ -87,13 +87,13 @@ describe('exec-sh', function () {
     })
 
     it('should allow passing nested environment options', function () {
-      var options = {
+      const options = {
         env: {
           key1: 'value 1',
           key2: 'value 2'
         }
       }
-      var expectedOptions = {
+      const expectedOptions = {
         env: {
           key1: 'value 1',
           key2: 'value 2'
@@ -105,14 +105,14 @@ describe('exec-sh', function () {
     })
 
     it("should accept optional 'callback' parameter", function () {
-      var callback = sinon.spy()
+      const callback = sinon.spy()
       execSh('command', callback)
       execSh('command', { key: 'value' }, callback)
       sinon.assert.callCount(callback, 2)
     })
 
     it("should use 'cmd /C' command prefix on windows", function () {
-      var platform = process.platform
+      const platform = process.platform
       Object.defineProperty(process, 'platform', { value: 'win32' })
       execSh('command')
       Object.defineProperty(process, 'platform', { value: platform })
@@ -122,7 +122,7 @@ describe('exec-sh', function () {
     })
 
     it("should use 'sh -c' command prefix on *nix", function () {
-      var platform = process.platform
+      const platform = process.platform
       process.platform = 'linux'
       execSh('command')
       process.platform = platform
