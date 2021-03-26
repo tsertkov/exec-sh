@@ -47,18 +47,18 @@ Exit code:  99
 ## Usage
 
 ```javascript
-var execSh = require("../");
+const execSh = require("../");
 
 // run interactive bash shell
-execSh("echo lorem && bash", { cwd: "/home" }, function(err){
+execSh("echo lorem && bash", { cwd: "/home" }, (err) => {
   if (err) {
     console.log("Exit code: ", err.code);
     return;
   }
 
   // collect streams output
-  var child = execSh(["bash -c id", "echo lorem >&2"], true,
-    function(err, stdout, stderr){
+  const child = execSh(["bash -c id", "echo lorem >&2"], true,
+    (err, stdout, stderr) => {
       console.log("error: ", err);
       console.log("stdout: ", stdout);
       console.log("stderr: ", stderr);
@@ -69,7 +69,7 @@ execSh("echo lorem && bash", { cwd: "/home" }, function(err){
 ## Promise Interface
 
 ```javascript
-var execShPromise = require("exec-sh").promise;
+const execShPromise = require("exec-sh").promise;
 
 // run interactive bash shell
 const run = async () => {
