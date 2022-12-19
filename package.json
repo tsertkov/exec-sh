@@ -31,14 +31,14 @@
     "url": "https://github.com/tsertkov/exec-sh/issues"
   },
   "devDependencies": {
-    "@types/node": "^18.11.9",
+    "@types/node": "^18.11.17",
     "coveralls": "^3.1.1",
     "jsdoc": "^4.0.0",
-    "jshint": "^2.13.5",
-    "mocha": "^10.1.0",
+    "jshint": "^2.13.6",
+    "mocha": "^10.2.0",
     "nyc": "^15.1.0",
-    "sinon": "^14.0.2",
+    "sinon": "^15.0.1",
     "standard": "^17.0.0",
-    "typescript": "^4.8.4"
+    "typescript": "^4.9.4"
   }
 }
