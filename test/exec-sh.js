@@ -123,9 +123,9 @@ describe('exec-sh', function () {
 
     it("should use 'sh -c' command prefix on *nix", function () {
       const platform = process.platform
-      process.platform = 'linux'
+      Object.defineProperty(process, 'platform', { value: 'linux' })
       execSh('command')
-      process.platform = platform
+      Object.defineProperty(process, 'platform', { value: platform })
 
       sinon.assert.calledOnce(spawn)
       assert.strictEqual(spawn.getCall(0).args[1][0], '-c')
