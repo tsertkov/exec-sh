@@ -12,7 +12,7 @@ exec-sh is a wrapper for [`child_process.spawn`](http://nodejs.org/api/child_pro
 - Cross platform command execution:
   - Windows: `cmd /C COMMAND`
   - others: `sh -c COMMAND`
-- Fowrards all stdio streams to current terminal (by default):
+- Forwards all stdio streams to current terminal (by default):
   - `execSh("bash")`
   - `execsh("echo -n Say: && read i && echo Said:$i")`
 - stdout and stderr are passed to callback when available
